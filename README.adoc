@@ -1,6 +1,6 @@
 = MEMORY LEAK REPRODUCER
 
-Run `mvn clean install`
+Run `mvn clean package`
 
 Run `./execute_jit.sh` and `./execute_no_jit.sh` and in both cases monitor the memory usage via `visualvm`.
 
