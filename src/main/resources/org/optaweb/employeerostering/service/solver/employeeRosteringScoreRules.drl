@@ -54,20 +54,6 @@ rule "No 2 shifts within 10 hours from each other"
         scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
 
-/*rule "Daily minutes must not exceed contract maximum"
-    when
-        $employee : Employee($contract : contract, $contract.getMaximumMinutesPerDay() != null)
-        $s : Shift(employee == $employee, $startDateTime : startDateTime)
-        Number( intValue > $contract.getMaximumMinutesPerDay() ) from accumulate(
-            Shift(employee == $employee, $shiftStart : startDateTime,
-            $shiftEnd : endDateTime,
-            $shiftStart.toLocalDate().equals($startDateTime.toLocalDate())),
-            sum(Duration.between($shiftStart, $shiftEnd).toMinutes())
-        )
-    then
-        scoreHolder.addHardConstraintMatch(kcontext, -1);
-end*/
-
 rule "Weekly minutes must not exceed contract maximum"
     when
         $rosterParametrization : RosterParametrization()
@@ -97,29 +83,3 @@ rule "Monthly minutes must not exceed contract maximum"
     then
         scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
-
-rule "Yearly minutes must not exceed contract maximum"
-    when
-        $employee : Employee($contract : contract, $contract.getMaximumMinutesPerYear() != null)
-        $s : Shift(employee == $employee, $startDateTime : startDateTime)
-        Number( intValue > $contract.getMaximumMinutesPerYear() ) from accumulate(
-            Shift(employee == $employee, $shiftStart : startDateTime,
-            $shiftEnd : endDateTime,
-            $shiftStart.getYear() == $startDateTime.getYear()),
-            sum(Duration.between($shiftStart, $shiftEnd).toMinutes())
-        )
-    then
-        scoreHolder.addHardConstraintMatch(kcontext, -1);
-end
-
-// ############################################################################
-// Medium constraints
-// ############################################################################
-
-rule "Assign every shift"
-    when
-        Shift(employee == null)
-    then
-        scoreHolder.addMediumConstraintMatch(kcontext, -1);
-end
-
