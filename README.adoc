@@ -1,0 +1,10 @@
+= MEMORY LEAK REPRODUCER
+
+Run `mvn clean install`
+
+Run `./execute_jit.sh` and `./execute_no_jit.sh` and in both cases monitor the memory usage via `visualvm`.
+
+- a run without Drools JIT finishes in ~2 minutes, which is the configured termination of OptaPlanner, and 3 GB
+of memory
+- a run with Drools JIT hangs, later fails due to GC overhead exceeded limit, despite it got 6 GB - twice as much memory
+
