@@ -13,22 +13,9 @@
   </termination>
 
   <localSearch>
-    <pillarChangeMoveSelector/>
-  </localSearch>
-
-<!-- ORIGINAL CONFIGURATION
-  <localSearch>
     <unionMoveSelector>
-      <changeMoveSelector/>
-      <swapMoveSelector/>
-      <pillarChangeMoveSelector>
-        <subPillarType>SEQUENCE</subPillarType>
-      </pillarChangeMoveSelector>
-
-      <pillarSwapMoveSelector>
-        <subPillarType>SEQUENCE</subPillarType>
-      </pillarSwapMoveSelector>
+      <pillarChangeMoveSelector/>
     </unionMoveSelector>
-  </localSearch>-->
+  </localSearch>
 
 </solver>
