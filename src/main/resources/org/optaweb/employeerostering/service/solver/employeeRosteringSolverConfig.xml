@@ -14,7 +14,9 @@
 
   <localSearch>
     <unionMoveSelector>
-      <pillarChangeMoveSelector/>
+      <pillarChangeMoveSelector>
+        <subPillarType>SEQUENCE</subPillarType>
+      </pillarChangeMoveSelector>
     </unionMoveSelector>
   </localSearch>
 
