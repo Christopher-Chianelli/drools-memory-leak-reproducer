@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+  <!--<environmentMode>FAST_ASSERT</environmentMode>-->
+  <solutionClass>memory.leak.reproducer.domain.roster.Roster</solutionClass>
+  <entityClass>memory.leak.reproducer.domain.shift.Shift</entityClass>
+
+  <scoreDirectorFactory>
+    <scoreDrl>memory/leak/reproducer/service/solver/employeeRosteringScoreRules.drl</scoreDrl>
+  </scoreDirectorFactory>
+
+  <termination>
+    <secondsSpentLimit>180</secondsSpentLimit>
+  </termination>
+
+  <localSearch>
+    <unionMoveSelector>
+      <pillarChangeMoveSelector>
+        <subPillarType>SEQUENCE</subPillarType>
+      </pillarChangeMoveSelector>
+    </unionMoveSelector>
+  </localSearch>
+
+</solver>
