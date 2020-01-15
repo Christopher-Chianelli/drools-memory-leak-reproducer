@@ -154,6 +154,7 @@ public class Main {
         public void handleLine(String line) {
             if (firstLine) {
                 moveTo = (line.equals("null")? null : employeeIdToEmployeeMap.get(Long.valueOf(line)));
+                firstLine = false;
             }
             else {
                 affectedShifts.add(shiftIdToShiftMap.get(Long.valueOf(line)));
