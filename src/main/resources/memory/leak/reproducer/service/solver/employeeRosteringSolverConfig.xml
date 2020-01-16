@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solver>
-  <!--<environmentMode>FAST_ASSERT</environmentMode>-->
+  <environmentMode>FULL_ASSERT</environmentMode>
   <solutionClass>memory.leak.reproducer.domain.roster.Roster</solutionClass>
   <entityClass>memory.leak.reproducer.domain.shift.Shift</entityClass>
 
